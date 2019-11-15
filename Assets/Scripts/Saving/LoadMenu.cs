@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class LoadMenu : MonoBehaviour
 {
-    public PlayerHandler player;
+    //public PlayerHandler player;
     public bool newGame;
     [System.Serializable]
     public struct LoadData
@@ -25,26 +25,24 @@ public class LoadMenu : MonoBehaviour
     void Start()
     {
         PlayerPrefs.DeleteAll();
-        player.characterName = "Blank";
-        player.curHealth = 100;
-        player.curCheckPoint = this.transform;
         for (int i = 1; i < 4; i++)
         {
             PlayerData.saveSlot = i;
-            PlayerBinary.LoadData();
-            data[i].name = player.characterName;
-            data[i].checkpoint = player.curCheckPoint.name;
-            data[i].health = player.curHealth;
-            player.characterName = "Blank";
-            player.curHealth = 100;
-            player.curCheckPoint = this.transform;
-        }
-        for (int i = 1; i < 4; i++)
-        {
-            if (data[i].checkpoint == "ScriptHolder")
+            data[i].blank = true;
+            PlayerData player = PlayerBinary.LoadData();
+            if (player != null)
             {
-                data[i].blank = true;
+                data[i].blank = false;
+                data[i].name = player.playerName;
+                data[i].checkpoint = player.checkPoint;
+                data[i].health = player.curHealth;
+            }
+            else
+            {
+                data[i].blank = false;
+                data[i].name = "Blank";
                 data[i].checkpoint = "Beach";
+                data[i].health = 100f;
             }
             data[i].desName.text = data[i].name;
             data[i].desCheckpoint.text = data[i].checkpoint;

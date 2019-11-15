@@ -27,6 +27,8 @@ public class Customistaion : MonoBehaviour
         public int tempStat;
     };
     public Stats[] playerStats = new Stats[6];
+    public Text[] playerStatsDis;
+    public Text pointsDis;
     public CharacterClass charClass;
     public Vector2 scr;
     public Text disClass;
@@ -173,7 +175,9 @@ public class Customistaion : MonoBehaviour
         {
             points--;
             playerStats[stat].tempStat++;
-        }
+            playerStatsDis[stat].text = playerStats[stat].statName + ":" + (playerStats[stat].tempStat + playerStats[stat].statValue).ToString();
+            pointsDis.text = "Points: "+points.ToString();
+}
     }
     public void StatChangeNeg(int stat)
     {
@@ -181,6 +185,8 @@ public class Customistaion : MonoBehaviour
         {
             points++;
             playerStats[stat].tempStat--;
+            playerStatsDis[stat].text = playerStats[stat].statName + ": " + (playerStats[stat].tempStat + playerStats[stat].statValue).ToString();
+            pointsDis.text = "Points: " + points.ToString();
         }
     }
     public void ChooseClass(int dirClass)

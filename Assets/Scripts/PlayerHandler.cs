@@ -13,13 +13,12 @@ public class PlayerHandler : MonoBehaviour
     }
 
     [Header("Value Variables")]
-    public float curHealth, curMana, curStamina;
+    public float curHealth; 
+    public float curMana, curStamina;
     public float maxHealth, maxMana, maxStamina;
- 
-    public PlayerStats[] stats;
-    //[SerializeField] public Stats[] stats;
+    public PlayerStats[] stats = new PlayerStats[6];
     public float heatRate;
-    [Header("Value Variables")]    // Start is called before the first frame update
+    [Header("Value Variable Objects")]    // Start is called before the first frame update
     public Slider healthBar, manaBar, staminaBar;
     public GameObject PlayerObject;
     [Header("Damage Effect Variables")]
@@ -34,12 +33,12 @@ public class PlayerHandler : MonoBehaviour
     [Header("Check Point")]
     public Transform curCheckPoint;
     [Header("Custom")]
+    public string characterName;
     public bool custom;
     public int skinIndex, eyesIndex, mouthIndex, hairIndex, clothesIndex, armourIndex;
     public int saveSlot;
-    //public CharacterClass characterClass;
-    public string characterName;
-    public string firstCheckPointName = "First CheckPoint";
+    public CharacterClass characterClass;
+    public string firstCheckPointName = "Beach";
 
     void Update()
     {

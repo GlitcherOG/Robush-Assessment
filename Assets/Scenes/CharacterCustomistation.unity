@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -731,7 +731,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 219823442}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1974846855}
+        m_MethodName: Save
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &219823442
@@ -3040,13 +3051,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66fd8a069ce452c48963c62e01e83c58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curHealth: 0
-  curMana: 0
-  curStamina: 0
-  maxHealth: 0
-  maxMana: 0
-  maxStamina: 0
-  stats: []
+  curHealth: 100
+  curMana: 100
+  curStamina: 100
+  maxHealth: 100
+  maxMana: 100
+  maxStamina: 100
+  stats:
+  - name: 
+    value: 0
+  - name: 
+    value: 0
+  - name: 
+    value: 0
+  - name: 
+    value: 0
+  - name: 
+    value: 0
+  - name: 
+    value: 0
   heatRate: 0
   healthBar: {fileID: 0}
   manaBar: {fileID: 0}
@@ -3057,6 +3080,7 @@ MonoBehaviour:
   flashSpeed: 5
   flashColour: {r: 1, g: 0, b: 0, a: 0.2}
   curCheckPoint: {fileID: 0}
+  characterName: 
   custom: 1
   skinIndex: 0
   eyesIndex: 0
@@ -3065,7 +3089,7 @@ MonoBehaviour:
   clothesIndex: 0
   armourIndex: 0
   saveSlot: 0
-  characterName: 
+  characterClass: 0
   firstCheckPointName: Beach
 --- !u!1 &745022102
 GameObject:
@@ -4831,7 +4855,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1099733740}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1974846852}
+        m_MethodName: StatChangeNeg
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1099733740
@@ -5028,7 +5063,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1112130667}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1974846852}
+        m_MethodName: StatChangePos
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1112130667
@@ -9026,6 +9072,7 @@ GameObject:
   - component: {fileID: 1974846853}
   - component: {fileID: 1974846852}
   - component: {fileID: 1974846854}
+  - component: {fileID: 1974846855}
   m_Layer: 0
   m_Name: ScriptHolder
   m_TagString: Untagged
@@ -9067,24 +9114,32 @@ MonoBehaviour:
   points: 15
   characterName: Adventure
   playerStats:
-  - statName: 
-    statValue: 0
+  - statName: Strength
+    statValue: 10
     tempStat: 0
-  - statName: 
-    statValue: 0
+  - statName: Dexterity
+    statValue: 10
     tempStat: 0
-  - statName: 
-    statValue: 0
+  - statName: Constitution
+    statValue: 10
     tempStat: 0
-  - statName: 
-    statValue: 0
+  - statName: Wisdom
+    statValue: 10
     tempStat: 0
-  - statName: 
-    statValue: 0
+  - statName: Intelligence
+    statValue: 10
     tempStat: 0
-  - statName: 
-    statValue: 0
+  - statName: Charisma
+    statValue: 10
     tempStat: 0
+  playerStatsDis:
+  - {fileID: 1276664698}
+  - {fileID: 1649949021}
+  - {fileID: 1815304901}
+  - {fileID: 218044668}
+  - {fileID: 544190622}
+  - {fileID: 969525015}
+  pointsDis: {fileID: 2004839175}
   charClass: 0
   scr: {x: 0, y: 0}
   disClass: {fileID: 199304271}
@@ -9114,6 +9169,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4f303d02fbd3654d940cc8211aa0caf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1974846855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974846851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e95984f12917c2b46a03cdb9b4ef00b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerName: {fileID: 932977341}
+  player: {fileID: 740321581}
+  custom: {fileID: 1974846852}
 --- !u!1001 &1976271583
 PrefabInstance:
   m_ObjectHideFlags: 0
