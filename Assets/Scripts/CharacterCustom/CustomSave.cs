@@ -23,6 +23,10 @@ public class CustomSave : MonoBehaviour
         player.clothesIndex = custom.clothesIndex;
         player.armourIndex = custom.armourIndex;
         player.characterClass = custom.charClass;
+        player.maxHealth = 10 * player.stats[2].value;
+        player.maxMana = 10 * player.stats[3].value;
+        player.maxStamina = 10 * player.stats[1].value;
         PlayerBinary.SavePlayerData(player);
+        //GameManager.ChangeScene(2);
     }
 }

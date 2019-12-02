@@ -30,7 +30,6 @@ public class Customistaion : MonoBehaviour
     public Text[] playerStatsDis;
     public Text pointsDis;
     public CharacterClass charClass;
-    public Vector2 scr;
     public Text disClass;
     public void SetSkin(int dir)
     {
@@ -171,17 +170,17 @@ public class Customistaion : MonoBehaviour
 
     public void StatChangePos(int stat)
     {
-        if (points > 0)
+        if (points > 0 && playerStats[stat].statValue + playerStats[stat].tempStat != 20)
         {
             points--;
             playerStats[stat].tempStat++;
-            playerStatsDis[stat].text = playerStats[stat].statName + ":" + (playerStats[stat].tempStat + playerStats[stat].statValue).ToString();
-            pointsDis.text = "Points: "+points.ToString();
+            playerStatsDis[stat].text = playerStats[stat].statName + ": " + (playerStats[stat].tempStat + playerStats[stat].statValue).ToString();
+            pointsDis.text = "Points: " + points.ToString();
 }
     }
     public void StatChangeNeg(int stat)
     {
-        if (playerStats[stat].tempStat > 0)
+        if (playerStats[stat].tempStat > 0 || playerStats[stat].statValue + playerStats[stat].tempStat >= 2)
         {
             points++;
             playerStats[stat].tempStat--;

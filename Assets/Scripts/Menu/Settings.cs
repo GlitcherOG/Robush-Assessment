@@ -4,72 +4,74 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
 
+[System.Serializable]
 public class Settings : MonoBehaviour
 {
-    public bool SettingsOpen;
-    public GameObject Panel;
     public bool menu;
-    public Text volume;
+    public Text volumeText;
     public Dropdown resolutionDropdown;
+    public Dropdown quailtyDropdown;
+    public Slider volumeSlider;
     Resolution[] resolutions;
     public AudioMixer audioMixer;
+    public float volume;
     // Start is called before the first frame update
     void Start()
     {
         resolutions = Screen.resolutions;
-
         resolutionDropdown.ClearOptions();
-
         List<string> options = new List<string>();
-
         int currentResolutionIndex = 0;
         for (int i = 0; i < resolutions.Length; i++)
         {
             string option = resolutions[i].width + " x " + resolutions[i].height;
             options.Add(option);
-
-            if(resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height)
+            if (resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height)
             {
                 currentResolutionIndex = i;
             }
         }
-
+        quailtyDropdown.value = QualitySettings.GetQualityLevel();
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(!menu)
+        if (SettingsBinary.LoadSettingsData() != null)
         {
-        if (SettingsOpen)
-        {
-            Time.timeScale = 0;
+            Load();
         }
         else
         {
-            Time.timeScale = 1;
-        }
+            Save();
         }
     }
 
-    public void Open()
+    public void Load()
     {
-        SettingsOpen = !SettingsOpen;
-        Panel.SetActive(SettingsOpen);
+        SettingsData data = SettingsBinary.LoadSettingsData();
+        audioMixer.SetFloat("Volume", data.soundLevel);
+        volumeText.text = "Master Volume: " + Mathf.Round((((80f + data.soundLevel) / 80) * 100)).ToString() + "%";
+        resolutionDropdown.value = data.resolutionIndex;
+        quailtyDropdown.value = data.quailtyIndex;
+        QualitySettings.SetQualityLevel(data.quailtyIndex);
+        Resolution resolution = resolutions[data.resolutionIndex];
+        volumeSlider.value = data.soundLevel;
+    }
+
+    public void Save()
+    {
+        SettingsBinary.SaveSettingData(this);
     }
 
     public void SetVolume(float soundLevel)
     {
         audioMixer.SetFloat("Volume", soundLevel);
-        volume.text = "Master Volume: " + Mathf.Round((((80f+soundLevel)/80)*100)).ToString() + "%";
+        Debug.Log(soundLevel);
+        volumeText.text = "Master Volume: " + Mathf.Round((((80f + soundLevel) / 80) * 100)).ToString() + "%";
     }
 
     public void SetFullscreen(bool isFullscreen)
     {
-        Screen.fullScreen = isFullscreen; 
+        Screen.fullScreen = isFullscreen;
     }
 
     public void SetQuailty(int index)

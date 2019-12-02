@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CharacterCustomistation.unity
     guid: 17a1f5e11ac458449949240901c1d336
+  - enabled: 1
+    path: Assets/Scenes/World.unity
+    guid: b58796feea40125498308a8ecd7ab17e
   m_configObjects: {}
