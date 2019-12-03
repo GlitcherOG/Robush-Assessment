@@ -6,11 +6,18 @@ public class AudioManager : MonoBehaviour
 {
     public AudioSource source;
     public AudioClip[] clip;
-    
+
     public void Death()
     {
         source.Pause();
         source.clip = clip[0];
+        source.Play();
+    }
+
+    public void ButtonClick()
+    {
+        source.Pause();
+        source.clip = clip[1];
         source.Play();
     }
 }

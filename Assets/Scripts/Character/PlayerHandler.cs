@@ -25,7 +25,8 @@ public class PlayerHandler : MonoBehaviour
     public GameObject PlayerObject;
     [Header("Damage Effect Variables")]
     public Image damageImage;
-    public Image deathImage;
+    public GameObject deathImage;
+    public AudioManager audioManager;
     public float flashSpeed = 5;
     public Color flashColour = new Color(1, 0, 0, 0.2f);
     public static bool isDead;
@@ -126,8 +127,9 @@ public class PlayerHandler : MonoBehaviour
     void Death()
     {
         isDead = true;
-        //deathImage.gameObject.GetComponent<Animator>().SetTrigger("isDead");
-        Invoke("Revive", 3f);
+        deathImage.gameObject.GetComponent<Animator>().SetTrigger("isDead");
+        audioManager.Death();
+        Invoke("Revive", 5f);
     }
     void Revive()
     {

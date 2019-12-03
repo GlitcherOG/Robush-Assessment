@@ -1865,7 +1865,9 @@ MonoBehaviour:
   maxMana: 0
   maxStamina: 0
   stats: []
-  heatRate: 0
+  healRate: 0
+  staminaRegain: 0
+  staminaTimer: 0
   healthBar: {fileID: 0}
   manaBar: {fileID: 0}
   staminaBar: {fileID: 0}
@@ -11388,6 +11390,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1806410600888462169, guid: ae57f39830efd3d418e8f5efb6e57fb5,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 376398050}
+    - target: {fileID: 1806410599965913214, guid: ae57f39830efd3d418e8f5efb6e57fb5,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 376398050}
+    - target: {fileID: 1806410601218034222, guid: ae57f39830efd3d418e8f5efb6e57fb5,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 376398050}
     - target: {fileID: 1806410600734701759, guid: ae57f39830efd3d418e8f5efb6e57fb5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11493,21 +11510,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1806410599965913214, guid: ae57f39830efd3d418e8f5efb6e57fb5,
-        type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 376398050}
-    - target: {fileID: 1806410600888462169, guid: ae57f39830efd3d418e8f5efb6e57fb5,
-        type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 376398050}
-    - target: {fileID: 1806410601218034222, guid: ae57f39830efd3d418e8f5efb6e57fb5,
-        type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 376398050}
     - target: {fileID: 1806410599695284173, guid: ae57f39830efd3d418e8f5efb6e57fb5,
         type: 3}
       propertyPath: m_AnchorMax.x
