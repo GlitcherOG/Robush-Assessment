@@ -27,6 +27,6 @@ public class CustomSave : MonoBehaviour
         player.maxMana = 10 * player.stats[3].value;
         player.maxStamina = 10 * player.stats[1].value;
         PlayerBinary.SavePlayerData(player);
-        //GameManager.ChangeScene(2);
+        GameManager.ChangeScene(2);
     }
 }
