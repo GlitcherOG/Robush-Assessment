@@ -6,54 +6,55 @@ namespace RPG.Player
 {
     public class MouseLook : MonoBehaviour
     {
-        //Enums allows us to create types and categories 
+        //Enum for the states of the rotational Axis
         public enum RotationalAxis
         {
             MouseX,
             MouseY
         }
-        //Header in the debguer 
-        [Header("Rotation Variavbles")]
-        //Sets the roational axis
-        public RotationalAxis axis = RotationalAxis.MouseX;
-        //Puts slider in the debuger
-        [Range(0, 200)]
-        //Float for the sensitivity
-        public float sensitivity = 15;
-        //Min and max of the y axis look
-        public float minY = -60, maxY = 60;
-        //Y rotation
-        private float _rotY;
+        [Header("Rotation Variavbles")] //Header for the roational values to be used in editor
+        public RotationalAxis axis = RotationalAxis.MouseX; //Sets the deafult roational axis
+        [Range(0, 200)] //Range for the float
+        public float sensitivity = 15; //How sensitive the look speed is
+        public float minY = -60, maxY = 60; //Min and max look range for up and down
+        private float _rotY; //The y rotation of the camera
 
         void Start()
         {
-            //Checks if the player has the component rigidbody and freezes the rotation on it if it exists
+            //If the component rigidbody exists
             if (GetComponent<Rigidbody>())
             {
+                //Freeze the roatation of the rotation
                 GetComponent<Rigidbody>().freezeRotation = true;
             }
-            //Locks the cursor to the center of the screen and makes it invisable
+            //Lock the cursor state
             Cursor.lockState = CursorLockMode.Locked;
+            //Set the visiblitiy of the cursor to false
             Cursor.visible = false;
-            //Checks if its attached to the camera and if so will change it so the rotational axis to the y axis
+            //If the componet Camera exists
             if (GetComponent<Camera>())
             {
+                //Set the axis to the RotationalAxis mouseY
                 axis = RotationalAxis.MouseY;
             }
         }
         void Update()
         {
+            //If isPaused is false in the Script PauseMenu
             if (!PauseMenu.isPaused) {
-                //Checks if the axis is mousex 
+                //If the RotationalAxis is MouseX
                 if (axis == RotationalAxis.MouseX)
                 {
-                    //Changes the roation of the x axis basied on mouse movement and time
+                    //Rotate the GameObject baised on the sensitivity multiplied by input from Mouse X and deltaTime
                     transform.Rotate(0, Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime, 0);
                 }
                 else
                 {
+                    //Add the Mouse Y multiplied by sensitivity and deltaTime
                     _rotY += Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
+                    //Clamp the _rotY by the minY and maxY
                     _rotY = Mathf.Clamp(_rotY, minY, maxY);
+                    //Transform the Local Rotation with a New Vector3 that uses the y rotation 
                     transform.localEulerAngles = new Vector3(-_rotY, 0, 0);
                 }
             }

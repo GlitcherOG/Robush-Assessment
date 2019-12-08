@@ -7,15 +7,19 @@ public class GameManager : MonoBehaviour
 {
     public static void ChangeScene(int sceneIndex)
     {
+        //Load the scene locatated at scene Index
         SceneManager.LoadScene(sceneIndex);
     }
 
     public void ExitGame()
     {
+        //If the player is the unity editor
 #if UNITY_EDITOR
+        //Set the unity editor to stop playing
         UnityEditor.EditorApplication.isPlaying =
             false;
-#else
+#else //Else
+        //Quit the application
         Application.Quit();
 #endif
     }

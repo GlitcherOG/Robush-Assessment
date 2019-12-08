@@ -239,8 +239,7 @@ public class LinearInventory : MonoBehaviour
             }
             else
             {
-                ItemTypes type = (ItemTypes)
-System.Enum.Parse(typeof(ItemTypes), sortType);
+                ItemTypes type = (ItemTypes)System.Enum.Parse(typeof(ItemTypes), sortType);
                 if (inv[i].ItemType == type)
                 {
                     itemButtons.Add(Instantiate(button, canvas.transform));

@@ -6,48 +6,52 @@ using UnityEngine.UI;
 public class PlayerHandler : MonoBehaviour
 {
     [System.Serializable]
-    public struct PlayerStats
+    //A Strut for containing the Player Stats
+    //E.g. Strength, Intelligence, Wisdom, Dexterity, Constitution, and Charisma
+    public struct PlayerStats 
     {
         public string name;
         public int value;
     }
 
     [Header("Value Variables")]
-    public float curHealth;
-    public float curMana, curStamina;
-    public float maxHealth, maxMana, maxStamina;
-    public PlayerStats[] stats = new PlayerStats[6];
-    public float healRate;
-    public bool staminaRegain;
-    public float staminaTimer;
-    [Header("Value Variable Objects")]    // Start is called before the first frame update
-    public Slider healthBar, manaBar, staminaBar;
-    public GameObject PlayerObject;
+    public float curHealth; //Public Float for the current health
+    public float curMana, curStamina; //Public Float for the current Mana and Current Stamina
+    public float maxHealth, maxMana, maxStamina; //Public Floats for the Maximum Health, Mana and Stamina
+    public PlayerStats[] stats = new PlayerStats[6]; //Array for player stats that contains 6 stats
+    public float healRate; //Public float for the healingRate of the player
+    public bool staminaRegain; //Bool for if the player is going to Regain Stamina
+    public float staminaTimer; //StaminaTimer to count down how long till stamina can be replenished
+    [Header("Value Variable Objects")]
+    public Slider healthBar, manaBar, staminaBar; //All the sliders for the health bar, Mana Bar, Stamina Bar
+    public GameObject PlayerObject; //The gameObject for the player
     [Header("Damage Effect Variables")]
-    public Image damageImage;
-    public GameObject deathImage;
-    public AudioManager audioManager;
-    public float flashSpeed = 5;
-    public Color flashColour = new Color(1, 0, 0, 0.2f);
-    public static bool isDead;
-    bool damaged;
-    bool canHeal;
-    float healTimer;
+    public Image damageImage; //Image for the damage effect
+    public GameObject deathImage; //GameObject for the deathImage
+    public AudioManager audioManager; //Script used to handle the sounds
+    public float flashSpeed = 5; //Flash speed for the damage effects
+    public Color flashColour = new Color(1, 0, 0, 0.2f); //Flash colour for the damage effects
+    public static bool isDead; //Bool for if the player is dead
+    bool damaged; //Bool for if the player is damaged
+    bool canHeal; //Bool for if the player canHeal
+    float healTimer; //Heal timer for how long till the character can heal
     [Header("Check Point")]
-    public Transform curCheckPoint;
+    public Transform curCheckPoint; //The transform object for the checkpoint
+    public string firstCheckPointName = "Beach"; //The string for the first checkpoints name
     [Header("Custom")]
-    public string characterName;
-    public bool custom;
+    public string characterName; //String for the characters name
+    public bool custom; //Bool for if the script is located outside of normal play
     public int skinIndex, eyesIndex, mouthIndex, hairIndex, clothesIndex, armourIndex;
-    public int saveSlot;
+    public int saveSlot; //
     public CharacterClass characterClass;
-    public string firstCheckPointName = "Beach";
     public Renderer character;
 
     private void Start()
     {
+        //If custom is false
         if (!custom)
         {
+            //Run the void SetTexture
             SetTexture();
         }
     }
@@ -55,7 +59,6 @@ public class PlayerHandler : MonoBehaviour
     {
         if (!custom)
         {
-            //Display Health
             if (healthBar.value != Mathf.Clamp01(curHealth / maxHealth))
             {
                 curHealth = Mathf.Clamp(curHealth, 0, maxHealth);
@@ -144,12 +147,12 @@ public class PlayerHandler : MonoBehaviour
         deathImage.gameObject.GetComponent<Animator>().SetTrigger("Revive");
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Checkpoint"))
         {
             curCheckPoint = other.transform;
-            healRate = 5;
+            healRate = 10;
             PlayerBinary.SavePlayerData(this);
         }
     }
@@ -165,6 +168,7 @@ public class PlayerHandler : MonoBehaviour
 
     public void HealOverTime()
     {
+        //Current Health plus deltaTime 
         curHealth += Time.deltaTime * (healRate + stats[2].value);
     }
 

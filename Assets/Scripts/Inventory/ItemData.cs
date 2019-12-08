@@ -4,23 +4,33 @@ public static class ItemData
 {
     public static Item CreateItem(int itemId)
     {
-        string name = "";
-        string description = "";
-        int amount = 0;
-        int value = 0;
-        int damage = 0;
-        int armour = 0;
-        int heal = 0;
-        string iconName = "";
-        string meshName = "";
+        string name = ""; //String for the name
+        string description = ""; //String for the description
+        int amount = 0; //int for the amount
+        int value = 0; //int for the value
+        int damage = 0; //int for the damage
+        int armour = 0; //Int for the armour
+        int heal = 0; //In for how much an item heals
+        string iconName = ""; //String for the loctaion of an item icon
+        string meshName = ""; //string for the loctaion of an item mesh
         ItemTypes type = ItemTypes.Misc;
 
-        switch(itemId)
+        switch (itemId)
         {
+            //Case number
+            //set the String used for the name
+            //Set the string used for the item discripton
+            //Set the int for the ammount that can be held
+            //Set the int for the value of the item
+            //Set the int for the damage that the item can cause
+            //Set the int for the amount of health it can restore
+            //set the String used to contain the location of the icon
+            //Set the string location used for the item
+            //Set the type of item it is
             #region Armour 0-99
             case 0:
                 name = "Rags";
-                description = "";
+                description = "Rags that can be used till you get some armour";
                 amount = 1;
                 value = 0;
                 damage = 0;
@@ -31,38 +41,38 @@ public static class ItemData
                 type = ItemTypes.Armour;
                 break;
             case 1:
-               name = "Iron Plate";
-               description = "ITS SOME ARMOR BOI";
-               amount = 10;
-               value = 10;
-               damage = 0;
-               armour = 1;
-               heal = 0;
-               iconName = "";
-               meshName = "";
-               type = ItemTypes.Armour;
-            break;
-            case 2:
                 name = "Iron Plate";
-                description = "ITS SOME ARMOR BOI";
-                amount = 10;
+                description = "Iron Plate Armour";
+                amount = 1;
                 value = 10;
                 damage = 0;
                 armour = 1;
                 heal = 0;
-                iconName = "";
+                iconName = "Armour_2/heavy_armor/h_a_03/pg_arm_t_01";
+                meshName = "";
+                type = ItemTypes.Armour;
+                break;
+            case 2:
+                name = "Steel Plate";
+                description = "Steel Plate Amour";
+                amount = 1;
+                value = 10;
+                damage = 0;
+                armour = 1;
+                heal = 0;
+                iconName = "Armour_2/heavy_armor/h_a_02/pp_arm_t_01";
                 meshName = "";
                 type = ItemTypes.Armour;
                 break;
             case 3:
-                name = "Steel Plate";
-                description = "ITS SOME ARMOR BOI";
-                amount = 10;
+                name = "Lether Armour";
+                description = "Lether Armour";
+                amount = 1;
                 value = 10;
                 damage = 0;
                 armour = 1;
                 heal = 0;
-                iconName = "";
+                iconName = "Armour_2/light_armor/l_a_01/mgg_arm_t_01";
                 meshName = "";
                 type = ItemTypes.Armour;
                 break;
@@ -70,75 +80,75 @@ public static class ItemData
             #region Weapon 100-199
             case 100:
                 name = "Sword";
-                description = "";
-                amount = 0;
-                value = 0;
-                damage = 0;
+                description = "Long Sword used to stab things";
+                amount = 1;
+                value = 10;
+                damage = 5;
                 armour = 0;
                 heal = 0;
-                iconName = "";
+                iconName = "Weapons and Armour/swords/swords_t_01";
                 meshName = "";
                 type = ItemTypes.Weapon;
                 break;
             case 101:
                 name = "Bow";
-                description = "";
-                amount = 0;
-                value = 0;
-                damage = 0;
+                description = "Used to attack enemys at a long range";
+                amount = 1;
+                value = 10;
+                damage = 3;
                 armour = 0;
                 heal = 0;
-                iconName = "";
+                iconName = "Weapons and Armour/bows_and_crossbows/bw_t_02";
                 meshName = "";
                 type = ItemTypes.Weapon;
                 break;
             case 102:
                 name = "Dagger";
-                description = "";
-                amount = 0;
-                value = 0;
-                damage = 0;
+                description = "Stabby Stabby";
+                amount = 1;
+                value = 10;
+                damage = 3;
                 armour = 0;
                 heal = 0;
-                iconName = "";
+                iconName = "Weapons and Armour/knives/kn_t_02";
                 meshName = "";
                 type = ItemTypes.Weapon;
                 break;
             #endregion
             #region Potion 200-299
             case 200:
-                name = "Potion1";
-                description = "";
-                amount = 0;
-                value = 0;
+                name = "Health Potion";
+                description = "Used to Heal";
+                amount = 1;
+                value = 10;
                 damage = 0;
                 armour = 0;
-                heal = 0;
-                iconName = "";
+                heal = 5;
+                iconName = "Potions/10";
                 meshName = "";
                 type = ItemTypes.Potion;
                 break;
             case 201:
-                name = "Potion2";
-                description = "";
-                amount = 0;
-                value = 0;
+                name = "Stanima Potion";
+                description = "Used to replenish Stanima faster";
+                amount = 1;
+                value = 10;
                 damage = 0;
                 armour = 0;
                 heal = 0;
-                iconName = "";
+                iconName = "Potions/1";
                 meshName = "";
                 type = ItemTypes.Potion;
                 break;
             case 202:
-                name = "Potion3";
-                description = "";
+                name = "Mana Potion";
+                description = "Used to replenish mana";
                 amount = 0;
                 value = 0;
                 damage = 0;
                 armour = 0;
                 heal = 0;
-                iconName = "";
+                iconName = "Potions/5";
                 meshName = "";
                 type = ItemTypes.Potion;
                 break;
@@ -183,10 +193,10 @@ public static class ItemData
             #endregion
             #region Ingredient 400-499
             case 400:
-                name = "flower1";
-                description = "";
-                amount = 0;
-                value = 0;
+                name = "Red Flower";
+                description = "It's a red flower";
+                amount = 1;
+                value = 10;
                 damage = 0;
                 armour = 0;
                 heal = 0;
@@ -195,10 +205,10 @@ public static class ItemData
                 type = ItemTypes.Ingredient;
                 break;
             case 401:
-                name = "flower2";
-                description = "";
-                amount = 0;
-                value = 0;
+                name = "White Flower";
+                description = "It's a White Flower";
+                amount = 1;
+                value = 10;
                 damage = 0;
                 armour = 0;
                 heal = 0;
@@ -207,10 +217,10 @@ public static class ItemData
                 type = ItemTypes.Ingredient;
                 break;
             case 402:
-                name = "flower3";
-                description = "";
-                amount = 0;
-                value = 0;
+                name = "Blue Flower";
+                description = "It's a Blue Flower";
+                amount = 1;
+                value = 10;
                 damage = 0;
                 armour = 0;
                 heal = 0;
@@ -221,27 +231,27 @@ public static class ItemData
             #endregion
             #region Craftable 500-599
             case 500:
-                name = "Part1";
-                description = "";
-                amount = 0;
-                value = 0;
+                name = "Nails";
+                description = "Used for holding stuff together";
+                amount = 1;
+                value = 10;
                 damage = 0;
                 armour = 0;
                 heal = 0;
-                iconName = "pt_t_01";
-                meshName = "pt_t_01";
+                iconName = "Misc/parts/Ni_t_04";
+                meshName = "";
                 type = ItemTypes.Craftable;
                 break;
             case 501:
-                name = "Part2";
-                description = "";
-                amount = 0;
-                value = 0;
+                name = "Ball of wool";
+                description = "Its a ball of wool";
+                amount = 1;
+                value = 10;
                 damage = 0;
                 armour = 0;
                 heal = 0;
-                iconName = "pt_t_02";
-                meshName = "pt_t_02";
+                iconName = "Misc/parts/pt_t_07";
+                meshName = "";
                 type = ItemTypes.Craftable;
                 break;
             case 502:
@@ -347,20 +357,33 @@ public static class ItemData
                 type = ItemTypes.Misc;
                 break;
         }
+        //Generate a new temp item
         Item temp = new Item
         {
+            //Set the id to the item id
             ID = itemId,
+            //Set the name to the name
             Name = name,
+            //Set the description to the description
             Description = description,
+            //Set the value to the value
             Value = value,
+            //Set the amount to the amount
             Amount = amount,
+            //Set the damage to the damage
             Damage = damage,
+            //Set the armour to the armour
             Armour = armour,
+            //Set the healh to the heal
             Heal = heal,
+            //Set the icon to load the icon from resources
             IconName = Resources.Load("Icons/" + iconName) as Texture2D,
+            //Set the mesh to load the gameobject from resources
             MeshName = Resources.Load("Prefabs/" + meshName) as GameObject,
+            //Set the item type
             ItemType = type
         };
+        //Return the temp item
         return temp;
     }
 }
