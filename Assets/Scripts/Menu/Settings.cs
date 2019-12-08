@@ -7,18 +7,19 @@ using UnityEngine.Audio;
 [System.Serializable]
 public class Settings : MonoBehaviour
 {
-    public Text volumeText;
-    public Dropdown resolutionDropdown;
-    public Dropdown quailtyDropdown;
-    public Slider volumeSlider;
-    Resolution[] resolutions;
-    public AudioMixer audioMixer;
-    public float volume;
-    public KeyCode tempKey, forward, backward, left, right, inventory, interact, jump;
-    public Text forwardButton, backwardButton, leftButton, rightButton, inventoryButton, interactButton, jumpButton;
-    // Start is called before the first frame update
+    public Text volumeText; //Text used to display the volume
+    public Dropdown resolutionDropdown; //Dropdown for the resolution
+    public Dropdown quailtyDropdown; //Dropdown for the quailty
+    public Slider volumeSlider; //Slider for the volume
+    Resolution[] resolutions; //An array used to store the resolutions
+    public AudioMixer audioMixer; //The Audio mixer for the volume
+    public float volume; //Used to store the volume float
+    public KeyCode tempKey, forward, backward, left, right, inventory, interact, jump; //Key codes for all the keys used
+    public Text forwardButton, backwardButton, leftButton, rightButton, inventoryButton, interactButton, jumpButton; //Buttons for all the keycodes
+
     void Start()
     {
+        //
         resolutions = Screen.resolutions;
         resolutionDropdown.ClearOptions();
         List<string> options = new List<string>();
