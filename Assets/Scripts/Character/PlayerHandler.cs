@@ -63,18 +63,25 @@ public class PlayerHandler : MonoBehaviour
             //If the healthbar value doesnt equal the clamp between curHealth and maxHealth
             if (healthBar.value != Mathf.Clamp01(curHealth / maxHealth))
             {
-                //curHealht to equal
+                //curHealth to clamp the current value between zero and max health 
                 curHealth = Mathf.Clamp(curHealth, 0, maxHealth);
+                //Set the healthBar value to be the clamp current health over maxHealth
                 healthBar.value = Mathf.Clamp01(curHealth / maxHealth);
             }
+            //If the manabar value doesnt equal the clamp between curHealth and max health 
             if (manaBar.value != Mathf.Clamp01(curMana / maxMana))
             {
+                //curMana to clamp the current value between zero and maxMana
                 curMana = Mathf.Clamp(curMana, 0, maxMana);
+                //Set the manaBar value to be the clamp between curMana over maxMana
                 manaBar.value = Mathf.Clamp01(curMana / maxMana);
             }
+            //If the stamina value doesn't equal the clamp between curStamina and maxStamina
             if (staminaBar.value != Mathf.Clamp01(curStamina / maxStamina))
             {
+                //curStamina to clamp the curtamina to be between zero and maxStamina
                 curStamina = Mathf.Clamp(curStamina, 0, maxStamina);
+                //Set the staminabar value to be the clamp between curStamina over maxStamina
                 staminaBar.value = Mathf.Clamp01(curStamina / maxStamina);
             }
             //If the current health is less than or equal to 0 and is dead is false

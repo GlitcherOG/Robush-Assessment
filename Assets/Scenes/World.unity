@@ -1138,7 +1138,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbcba4bf17ccf0e4a961f3916d978cab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menu: 0
   volumeText: {fileID: 1557838420}
   resolutionDropdown: {fileID: 1547274366}
   quailtyDropdown: {fileID: 1476028664}
@@ -1175,8 +1174,7 @@ MonoBehaviour:
   source: {fileID: 104911049}
   clip:
   - {fileID: 8300000, guid: 52a6f40128713485983748e6e7011d00, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: fba2ef92df20e764dafde12cfbe47ce8, type: 3}
 --- !u!82 &104911049
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1487,6 +1485,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 104911048}
+        m_MethodName: ButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &110997743
@@ -1706,6 +1715,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 104911044}
         m_MethodName: Load
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 104911048}
+        m_MethodName: ButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9124,6 +9144,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 104911048}
+        m_MethodName: ButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1207511589
@@ -16238,6 +16269,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 104911048}
+        m_MethodName: ButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &2010310871
@@ -17501,6 +17543,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 104911045}
         m_MethodName: ExitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 104911048}
+        m_MethodName: ButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -22753,17 +22806,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sortType: All
   dropLocation: {fileID: 2052089652}
-  equippedItems: []
+  equippedItems:
+  - slotName: 
+    location: {fileID: 0}
+    equippedItem: {fileID: 0}
+  - slotName: 
+    location: {fileID: 0}
+    equippedItem: {fileID: 0}
+  - slotName: 
+    location: {fileID: 0}
+    equippedItem: {fileID: 0}
+  - slotName: 
+    location: {fileID: 0}
+    equippedItem: {fileID: 0}
+  - slotName: 
+    location: {fileID: 0}
+    equippedItem: {fileID: 0}
   itemImage: {fileID: 1348678119}
   itemText: {fileID: 963607688}
   itemButtons: []
   button: {fileID: 1587702512720894065, guid: 5cdec1b899182884bab453c59bc1b7de, type: 3}
   canvas: {fileID: 1770573635}
-  scroll: {fileID: 0}
   invPanel: {fileID: 421330817}
   itemDes: {fileID: 252660538}
   statPanel: {fileID: 1475431428}
   sack: {fileID: 1454381207565632454, guid: 53e977c99dbe1264695653d77c500bcf, type: 3}
+  useButton: {fileID: 1701100980}
 --- !u!114 &8354223424624814471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22776,10 +22844,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b73c3d5e0765c94b9ceecccc6769b46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue: []
-  options: 0
-  index: 0
-  dlgMode: 0
   showDlg: 0
   dlg: {fileID: 1845909838}
   panel: {fileID: 2086761534}
