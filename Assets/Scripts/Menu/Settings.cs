@@ -66,11 +66,15 @@ public class Settings : MonoBehaviour
     {
         //New SettingsData for the data loaded from settings file
         SettingsData data = SettingsBinary.LoadSettingsData();
-        //
+        //Set the audioMixer volume to the data soundLevel
         audioMixer.SetFloat("Volume", data.soundLevel);
+        //Change the volume text to show the volume percentage
         volumeText.text = "Master Volume: " + Mathf.Round((((80f + data.soundLevel) / 80) * 100)).ToString() + "%";
+        //Set the resolution dropdown value to the Data resolutionIndex
         resolutionDropdown.value = data.resolutionIndex;
+        //Set the quailty dropdown value to the data quailtyIndex
         quailtyDropdown.value = data.quailtyIndex;
+        //
         QualitySettings.SetQualityLevel(data.quailtyIndex);
         Resolution resolution = resolutions[data.resolutionIndex];
         volumeSlider.value = data.soundLevel;

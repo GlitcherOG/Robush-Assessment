@@ -8,6 +8,7 @@ using UnityEngine.EventSystems;
 public class LinearInventory : MonoBehaviour
 {
     #region Variables
+    [Header("Global Script Variables")]
     public static List<Item> inv = new List<Item>(); //New list for all the items in the inventory 
     public static bool showInv; //Bool for if the inventroy is shown
     public Item selectedItem; //Item for the selected item
@@ -24,16 +25,19 @@ public class LinearInventory : MonoBehaviour
         public GameObject equippedItem;
     };
     public EquippedItems[] equippedItems; //Used for the equipment 
+    [Header("Stat Panel")]
+    public GameObject statPanel; //The statPanel gameobject
     public RawImage itemImage; //The Item Image
     public Text itemText; //The Item name text
+    public Text itemDes; //The item Description text
+    public GameObject useButton; //The useButton gameobject
+    [Header("Main Panel")]
     public List<GameObject> itemButtons = new List<GameObject>(); //List for the itemButtons 
     public GameObject button; //Prefab used for the buttons
     public GameObject canvas; //Gameobject used for the canvas
     public GameObject invPanel; //Gameobject for the inventory items
-    public Text itemDes; //The item Description text
-    public GameObject statPanel; //The statPanel gameobject
+    [Header("Item Prefab")]
     public GameObject sack; //The gameobject prefab for items
-    public GameObject useButton; //The useButton gameobject
     #endregion
 
     private void Start()
