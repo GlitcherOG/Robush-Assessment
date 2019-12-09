@@ -77,7 +77,7 @@ public class Item
         get { return _meshName; }
         set { _meshName = value; }
     }
-    public ItemTypes ItemType //
+    public ItemTypes ItemType //Item Types
     {
         get { return _type; }
         set { _type = value; }

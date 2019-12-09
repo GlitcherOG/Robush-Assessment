@@ -74,23 +74,37 @@ public class Settings : MonoBehaviour
         resolutionDropdown.value = data.resolutionIndex;
         //Set the quailty dropdown value to the data quailtyIndex
         quailtyDropdown.value = data.quailtyIndex;
-        //
+        //Set the quality level using the quailtyIndex
         QualitySettings.SetQualityLevel(data.quailtyIndex);
-        Resolution resolution = resolutions[data.resolutionIndex];
+        //Set the volumeSlider value using the data sound level
         volumeSlider.value = data.soundLevel;
+        //Set forward basied on data forward
         forward = (KeyCode)System.Enum.Parse(typeof(KeyCode), data.forward);
+        //Set the forward text to forward
         forwardButton.text = forward.ToString();
+        //Set backward basied on data backward
         backward = (KeyCode)System.Enum.Parse(typeof(KeyCode), data.backward);
+        //Set the backward text to backward
         backwardButton.text = backward.ToString();
+        //Set left basied on data left
         left = (KeyCode)System.Enum.Parse(typeof(KeyCode), data.left);
+        //Set the left text to left
         leftButton.text = left.ToString();
+        //Set right basied on data right
         right = (KeyCode)System.Enum.Parse(typeof(KeyCode), data.right);
+        //Set the right text to right
         rightButton.text = right.ToString();
+        //Set jump basied on data jump
         jump = (KeyCode)System.Enum.Parse(typeof(KeyCode), data.jump);
+        //Set the jump text to jump
         jumpButton.text = jump.ToString();
+        //Set interact basied on data interact
         interact = (KeyCode)System.Enum.Parse(typeof(KeyCode), data.interact);
+        //Set the interact text to interact
         interactButton.text = interact.ToString();
+        //Set inventory basied on data inventory
         inventory = (KeyCode)System.Enum.Parse(typeof(KeyCode), data.inventory);
+        //Set the inventory text to inventory
         inventoryButton.text = inventory.ToString();
     }
 

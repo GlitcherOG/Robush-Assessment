@@ -22810,28 +22810,16 @@ MonoBehaviour:
   - slotName: 
     location: {fileID: 0}
     equippedItem: {fileID: 0}
-  - slotName: 
-    location: {fileID: 0}
-    equippedItem: {fileID: 0}
-  - slotName: 
-    location: {fileID: 0}
-    equippedItem: {fileID: 0}
-  - slotName: 
-    location: {fileID: 0}
-    equippedItem: {fileID: 0}
-  - slotName: 
-    location: {fileID: 0}
-    equippedItem: {fileID: 0}
+  statPanel: {fileID: 1475431428}
   itemImage: {fileID: 1348678119}
   itemText: {fileID: 963607688}
+  itemDes: {fileID: 252660538}
+  useButton: {fileID: 1701100980}
   itemButtons: []
   button: {fileID: 1587702512720894065, guid: 5cdec1b899182884bab453c59bc1b7de, type: 3}
   canvas: {fileID: 1770573635}
   invPanel: {fileID: 421330817}
-  itemDes: {fileID: 252660538}
-  statPanel: {fileID: 1475431428}
   sack: {fileID: 1454381207565632454, guid: 53e977c99dbe1264695653d77c500bcf, type: 3}
-  useButton: {fileID: 1701100980}
 --- !u!114 &8354223424624814471
 MonoBehaviour:
   m_ObjectHideFlags: 0
